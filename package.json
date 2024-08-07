@@ -1,0 +1,31 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "Node.js Practice",
+  "main": "index.js",
+  "author": "Jyundev",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.3",
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.12",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
