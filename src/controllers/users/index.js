@@ -4,6 +4,7 @@ import { Router } from "express";
 class UserController {
     // 클래스 내에서는 멤버 변수를 선언할 때 따로 const나 let을 사용할 필요가 없다.
     router;
+    path = "/users"
     users = [
         {
             id: 1,
@@ -40,9 +41,9 @@ class UserController {
 
     createUser(req, res) {
         const { name, age } = req.body;
-        const id = (this.users.length != 0) ? this.users.length : new Date().getTime();
+        // const id = (this.users.length != 0) ? this.users.length : new Date().getTime();
         this.users.push({
-            id,
+            id: new Date().getTime(),
             name,
             age
         });
