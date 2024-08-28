@@ -1,5 +1,5 @@
-import userController from "./users";
-import postController from "./posts";
+import { UserController } from "../users";
 
-// Routers
-export default [userController, postController]
+const Controllers = [UserController]
+
+export default Controllers;

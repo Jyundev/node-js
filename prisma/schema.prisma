@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String @id @default(uuid())
+  name        String @db.VarChar(200)
+  email       String @db.VarChar(200)
+  phoneNumber String @db.Char(11)
+  age         Int
+  post        Post[]
+}
+
+model Post {
+  id      String @id @default(uuid()) // 기본 키, UUID로 자동 생성
+  title   String @db.VarChar(200) // 제목은 최대 200자의 문자열
+  content String @db.LongText // 긴 텍스트 필드
+
+  userId String //FK
+  user   User   @relation(fields: [userId], references: [id]) // 외래 키 관계 설정
+}
+
